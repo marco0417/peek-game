@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<script>(function(){window.addEventListener('pageshow',function(e){if(e.persisted){location.reload();}});})();</script>
+<title>PEEK: Zodiac Roulette</title>
+<meta name="description" content="PEEK: Zodiac Roulette is a free vertical-screen realistic horror gambling web game. Trapped in an endless cycle, you bet your life against a dealer wearing realistic zodiac masks. Hold to peek and read the bullet order, release before the alert gauge fills — survive on timing. Play free in PC and mobile browsers, no download. Supports EN / ZH / ZH-TW.">
+<meta name="keywords" content="PEEK, Zodiac Roulette, web game, browser game, Russian roulette, horror game, psychological game, zodiac, free game, mobile game, peek bullet order, realistic style, Buckshot Roulette-like, turn-based strategy">
+<meta name="author" content="PEEK: Zodiac Roulette">
+  <meta name="theme-color" content="#0b0b10">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="apple-touch-icon" href="./icon-512.png">
+  <meta name="app-version" content="2.7.75">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://marconest.itch.io/peek-zodiac-roulette">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='88'>🎭</text></svg>">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PEEK: Zodiac Roulette">
+<meta property="og:title" content="PEEK: Zodiac Roulette">
+<meta property="og:description" content="Bet your life against a dealer in realistic zodiac masks. Hold to peek and read the bullet order, release before the alert gauge fills — survive on timing. Free, no download, play on PC and mobile.">
+<meta property="og:url" content="https://marconest.itch.io/peek-zodiac-roulette">
+<meta property="og:image" content="https://marco0417.github.io/peek-game/assets/share/peeksharex.png?v=2">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PEEK: Zodiac Roulette — realistic zodiac horror gambling web game">
+<meta property="og:image:type" content="image/png">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PEEK: Zodiac Roulette">
+<meta name="twitter:description" content="Bet your life against a dealer in realistic zodiac masks. Hold to peek and read the bullet order, release before the alert gauge fills — survive on timing. Free, no download, play on PC and mobile.">
+<meta name="twitter:image" content="https://marco0417.github.io/peek-game/assets/share/peeksharex.png?v=2">
+<!-- AEO / SEO 结构化数据：WebSite + VideoGame + FAQPage（中/英） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "无间轮回 PEEK 是什么游戏？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "这是一款竖屏伪3D写实惊悚博弈网页游戏：你被困在「无间轮回」，与戴写实生肖面具的庄家对赌生死。枪里混着实弹与空包，用「偷看」读破弹序、靠时机操作活下去是唯一办法。"
+      },
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "Question",
+      "name": "游戏怎么玩？核心规则是什么？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "轮到你时，可选择「对庄家开枪」或「对自己开枪」。开枪即换手——无论命中与否，下一发都由对手射击。实弹会扣血、空包无伤，先把对手血量打空者胜。"
+      },
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "Question",
+      "name": "「偷看」怎么用？为什么有操作难度？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "偷看能窥破当前与未来弹仓的弹序（实弹或空包），是决策关键情报。但升级后它不再是即时显示：需按住偷看键一段时间、弹序才会浮现，而警觉槽会在窥视中持续涨满；涨满前不松手就会扣血。首次中弹后觉醒解锁——读弹序与扣血风险之间，要拿捏时机。"
+      },
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "Question",
+      "name": "道具（如照妖镜、断魂刃）怎么获得？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "击败庄家会掉落遗物道具，后续每局也会随机补发；庄家同样持有道具，并会在对局中使用它们干扰你。"
+      },
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "Question",
+      "name": "「加码」是什么？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "庄家偶尔会提出加码赌约：用信息赌一把，赢了能回血、得道具或让庄家掉血；输了惩罚很轻（丢 1 道具或少量掉血）。有把握再应战，没把握可拒绝。"
+      },
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "Question",
+      "name": "支持手机吗？需要下载吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "完全免费、无需下载。PC 与手机浏览器均可直接游玩，竖屏针对手机优化。"
+      },
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "Question",
+      "name": "有多少种生肖庄家？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "主线含十二生肖庄家（鼠到龙），击败辰龙后会迎来真正 Boss 的惊吓反转；另有「无尽轮回」模式，难度随连胜递进。"
+      },
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "Question",
+      "name": "游戏支持哪些语言？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "支持简体中文、繁体中文与英文。在「设置 → 语言」可一键切换，全部文案（含庄家台词、道具、加码）三语完整呈现。"
+      },
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "Question",
+      "name": "我的战绩数据安全吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "所有战绩与成就仅保存在你本机浏览器（localStorage），不上传服务器，可随时在设置中清空。全球排行榜（基于 Supabase）正在规划中。"
+      },
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "Question",
+      "name": "有成就系统吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "有。每击败一位生肖庄家都会留下一枚「轮回印记」；另含看破伪装、满血凯旋、加码常胜等试炼成就。成就仅保存在本机。"
+      },
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "Question",
+      "name": "这和 Buckshot Roulette 有什么关系？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "同属「改装枪械 + 俄罗斯轮盘 + 心理博弈」的惊悚博弈品类；无间轮回 PEEK 以东方生肖怪谈为皮、写实美术为底，加入偷看弹序、道具博弈与加码豪赌等原创机制。"
+      },
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "Question",
+      "name": "这个游戏是原创的吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不是。本作的剧情与设定借鉴了小说《十日终焉》（作者：杀虫队队员）和独立游戏《恶魔轮盘 / Buckshot Roulette》（作者：Mike Klubnika），只是在两者基础上加入了自己的想法。详情与完整致谢见「关于」页。"
+      },
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "Question",
+      "name": "無間輪迴 PEEK 是什麼遊戲？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "這是一款豎屏偽3D寫實驚悚博弈網頁遊戲：你被困在「無間輪迴」，與戴寫實生肖面具的莊家對賭生死。槍裡混著實彈與空包，用「偷看」讀破彈序、靠時機操作活下去是唯一辦法。"
+      },
+      "inLanguage": "zh-TW"
+    },
+    {
+      "@type": "Question",
+      "name": "遊戲怎麼玩？核心規則是什麼？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "輪到你時，可選擇「對莊家開槍」或「對自己開槍」。開槍即換手——無論命中與否，下一發都由對手射擊。實彈會扣血、空包無傷，先把對手血量打空者勝。"
+      },
+      "inLanguage": "zh-TW"
+    },
+    {
+      "@type": "Question",
+      "name": "「偷看」怎麼用？為什麼有操作難度？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "偷看能窺破當前與未來彈倉的彈序（實彈或空包），是決策關鍵情報。但升級後它不再是即時顯示：需按住偷看鍵一段時間、彈序才會浮現，而警覺槽會在窺視中持續漲滿；漲滿前不鬆手就會扣血。首次中彈後覺醒解鎖——讀彈序與扣血風險之間，要拿捏時機。"
+      },
+      "inLanguage": "zh-TW"
+    },
+    {
+      "@type": "Question",
+      "name": "道具（如照妖鏡、斷魂刃）怎麼獲得？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "擊敗莊家會掉落遺物道具，後續每局也會隨機補發；莊家同樣持有道具，並會在對局中使用它們干擾你。"
+      },
+      "inLanguage": "zh-TW"
+    },
+    {
+      "@type": "Question",
+      "name": "「加碼」是什麼？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "莊家偶爾會提出加碼賭約：用資訊賭一把，贏了能回血、得道具或讓莊家掉血；輸了懲罰很輕（丟 1 道具或少量掉血）。有把握再應戰，沒把握可拒絕。"
+      },
+      "inLanguage": "zh-TW"
+    },
+    {
+      "@type": "Question",
+      "name": "支援手機嗎？需要下載嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "完全免費、無需下載。PC 與手機瀏覽器均可直接遊玩，豎屏針對手機優化。"
+      },
+      "inLanguage": "zh-TW"
+    },
+    {
+      "@type": "Question",
+      "name": "有多少種生肖莊家？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "主線含十二生肖莊家（鼠到龍），擊敗辰龍後會迎來真正 Boss 的驚嚇反轉；另有「無盡輪迴」模式，難度隨連勝遞進。"
+      },
+      "inLanguage": "zh-TW"
+    },
+    {
+      "@type": "Question",
+      "name": "遊戲支援哪些語言？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "支援簡體中文、繁體中文與英文。在「設定 → 語言」可一鍵切換，全部文案（含莊家台詞、道具、加碼）三語完整呈現。"
+      },
+      "inLanguage": "zh-TW"
+    },
+    {
+      "@type": "Question",
+      "name": "我的戰績資料安全嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "所有戰績與成就僅保存在你本機瀏覽器（localStorage），不上傳伺服器，可隨時在設定中清空。全球排行榜（基於 Supabase）正在規劃中。"
+      },
+      "inLanguage": "zh-TW"
+    },
+    {
+      "@type": "Question",
+      "name": "有成就系統嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "有。每擊敗一位生肖莊家都會留下一枚「輪迴印記」；另含看破偽裝、滿血凱旋、加碼常勝等試煉成就。成就僅保存在本機。"
+      },
+      "inLanguage": "zh-TW"
+    },
+    {
+      "@type": "Question",
+      "name": "這和 Buckshot Roulette 有什麼關係？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "同屬「改裝槍械 + 俄羅斯輪盤 + 心理博弈」的驚悚博弈品類；無間輪迴 PEEK 以東方生肖怪談為皮、寫實美術為底，加入偷看彈序、道具博弈與加碼豪賭等原創機制。"
+      },
+      "inLanguage": "zh-TW"
+    },
+    {
+      "@type": "Question",
+      "name": "這個遊戲是原創的嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不是。本作的劇情與設定借鑑了小說《十日終焉》（作者：殺蟲隊隊員）和獨立遊戲《惡魔輪盤 / Buckshot Roulette》（作者：Mike Klubnika），只是在兩者基礎上加入了自己的想法。詳情與完整致謝見「關於」頁。"
+      },
+      "inLanguage": "zh-TW"
+    },
+    {
+      "@type": "Question",
+      "name": "What kind of game is Endless Cycle PEEK?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is a vertical pseudo-3D realistic horror strategy web game. You are trapped in the Endless Cycle, gambling your life against masked Zodiac dealers. The gun mixes live rounds and blanks; reading the chamber order and timing your actions are the only ways to survive."
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Question",
+      "name": "How do you play? What are the core rules?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On your turn, choose to shoot the dealer or shoot yourself. Shooting passes the turn regardless of result — the next round is fired by your opponent. Live rounds cost HP; blanks are harmless. Empty the opponent’s hearts first to win."
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Question",
+      "name": "How does Peek work? Why is it skill-based?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Peek reveals the current or upcoming chamber order (live or blank), the key intel for your decisions. After the upgrade it is no longer instant: hold the Peek button until the order surfaces, while the alert gauge keeps filling. Release before it fills, or you take backlash damage. It unlocks after your first hit — balance knowledge against HP risk."
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get items like the Mirror or Blade?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Defeating a dealer drops relic items, and subsequent runs randomly restock them. Dealers also hold items and will use them to disrupt you."
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Question",
+      "name": "What is a Raise?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Occasionally the dealer offers a raise: wager information for a reward — healing, an item, or dealer damage. The penalty for losing is light (lose one item or a little HP). Accept only when confident; decline if unsure."
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work on mobile? Do I need to download it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Completely free and no download required. Play directly in PC or mobile browsers; the vertical layout is optimized for phones."
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Question",
+      "name": "How many Zodiac dealers are there?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The main arc has twelve Zodiac dealers (Rat to Dragon). After defeating the Dragon, a true boss twist awaits. Endless Cycle mode increases difficulty as your streak grows."
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Question",
+      "name": "What languages are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Simplified Chinese, Traditional Chinese, and English. Switch anytime in Settings → Language; all text including dealer lines, items, and raises is fully localized."
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Question",
+      "name": "Is my save data safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All stats and achievements are saved only in your local browser (localStorage) and are not uploaded to any server. You can clear them anytime in Settings. A global leaderboard (via Supabase) is planned."
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Question",
+      "name": "Is there an achievement system?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Defeating each Zodiac dealer leaves a Cycle Mark; additional trials include seeing through disguises, full-HP victories, and raise streaks. Achievements are saved locally only."
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Question",
+      "name": "How is this related to Buckshot Roulette?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both belong to the horror strategy genre of modified-gun Russian roulette and psychological bluffing. Endless Cycle PEEK uses Eastern Zodiac folklore and realistic art, adding original mechanics like timed Peek, item play, and raises."
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Question",
+      "name": "Is this game original?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The story and settings draw from the novel '十日终焉' (by 杀虫队队员) and the indie game 'Buckshot Roulette' (by Mike Klubnika); we simply built on both with our own ideas. See the About page for full credits."
+      },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>  <script type="module" crossorigin src="./assets/index-BfJHEVwZ.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BXpgWQ7Y.css">
+</head>
+<body>
+<div id="game">
+  <!-- 氛围层 Canvas（常驻：烛光呼吸 + 暗角脉动 + 香灰飘落）；z-index:23 压在 HUD 边缘之上、不挡弹窗文字 -->
+  <canvas id="ambientCanvas"></canvas>
+  <!-- 射击 FX Canvas（瞬时：枪口闪 + 火花 + 弹壳 + 震屏 + 血溅）；z-index:26 开枪冲击最顶，但低于弹窗(35/45) -->
+  <canvas id="fxCanvas"></canvas>
+  <!-- 加码结算 HUD 横幅：非阻塞，开枪后立即弹出，2.6s 自动消失 -->
+  <div class="bet-banner" id="betBanner"></div>
+  <!-- v14 顶部工具栏 -->
+  <!-- 启动幕布：纯黑、内联样式（不依赖 CSS/JS 加载），盖住底下 ❓ 庄家位等默认 UI；
+       game.js 启动 showIntro() 淡入完成后才移除，消除「载入闪现 ❓ 页面」 -->
+  <div id="bootCover" style="position:fixed;inset:0;background:#000;z-index:9990;pointer-events:none;transition:opacity .4s ease"></div>
+  <script>/* 保险：game.js 加载异常时 8s 后自动撤幕布，避免永久黑屏 */
+  setTimeout(function(){var b=document.getElementById('bootCover');if(b&&b.parentNode)b.parentNode.removeChild(b);},8000);</script>
+  <div class="topbar">
+    <button class="toolbtn" id="bHelp" title="规则 / 道具">?</button>
+    <button class="toolbtn" id="bGear" title="设置">⚙️</button>
+  </div>
+  <div class="scene" id="scene">
+    <div class="flash" id="flash"></div>
+    <div class="vignette" id="vignette"></div>
+    <div class="hurt" id="hurt"></div>
+    <div class="blood-sign" id="bloodSign">窥</div>
+  </div>
+  <!-- 偷看弹巢：独立于 scene，z-index 高于 HUD，避免战报/HUD 遮挡 -->
+  <div class="peek" id="peek">
+    <div class="monitor"><i id="mon"></i></div>
+    <div class="load-title" data-i18n="窥视 · 下一发">窥视 · 下一发</div>
+    <div class="cylinder-wrap"><canvas id="peekCyl" width="600" height="600"></canvas></div>
+    <div class="peek-hint" data-i18n="警觉槽涨满前松手 —— 越看画面越抖，别贪。">警觉槽涨满前松手 —— 越看画面越抖，别贪。</div>
+  </div>
+  <!-- v14：庄家区独立于 scene，避免 HUD 展开时遮挡 -->
+  <div class="dealer-zone" id="dealerZone">
+    <div class="dealer">
+      <div class="bubble" id="bubble"></div>
+      <div class="mask-wrap" id="maskWrap">
+        <div class="mask" id="mask"><span class="zface" id="zface">❓</span></div>
+      </div>
+      <div class="action-line" id="actionLine"></div>
+    </div>
+  </div>
+  <!-- 左上门派信息块：名字 / 庄家血 / 庄家道具 拆成三个独立可拖动模块 -->
+  <div class="dealer-info" id="dealerInfo">
+    <div class="di-block gm-draggable" id="diName"><div class="dname" id="dname">卯 兔</div></div>
+    <div class="di-block gm-draggable" id="diHp"><div class="hp" id="dhp"></div></div>
+    <div class="di-block gm-draggable" id="diItems"><div class="ditems" id="ditems"></div></div>
+  </div>
+  <!-- 露脸演出：独立于 scene，z-index 高于 dealer-zone，确保文字居中不被遮挡 -->
+  <div class="face-reveal" id="faceReveal"><div class="fr-text" id="frText"></div></div>
+  <!-- v14：中部弹性占位，把 HUD 推到底部；展开战报时 HUD 向上顶 -->
+  <div class="hud-spacer"></div>
+  <!-- 无尽模式 HUD：连胜 / 倍率 / 分数 / 最佳 -->
+  <div class="endless-bar" id="endlessBar" style="display:none">
+    <span class="eb-streak"><span data-i18n="连胜">连胜</span> <b id="ebStreak">0</b></span>
+    <span class="eb-mult"><span data-i18n="倍率">倍率</span> <b id="ebMult">×1</b></span>
+    <span class="eb-score"><span data-i18n="分数">分数</span> <b id="ebScore">0</b></span>
+    <span class="eb-best"><span data-i18n="最佳">最佳</span> <b id="ebBest">0</b></span>
+  </div>
+  <div class="blackout" id="blackout"></div>
+  <div class="hud">
+    <div class="log-panel collapsed" id="logPanel">
+      <div class="log-head" id="logHead"><span class="ind">›</span><span class="last" id="logLast"></span><span class="arrow" id="logArrow">▼</span></div>
+      <div class="log-body" id="logBody"><div class="log-list" id="logList"></div></div>
+    </div>
+    <div class="hp-chamber-row">
+      <div class="player-hp"><span class="label" data-i18n="你">你</span><div class="hearts" id="php"></div></div>
+      <div class="chamber-hint" id="chamberInfo"></div>
+    </div>
+    <div class="itembar-row">
+      <div class="itembar" id="itembar"></div>
+      <button class="peek-btn" id="bPeek"><span class="pe">👁</span><span class="peek-label" data-i18n="偷看">偷看</span><span class="cnt" id="peekCnt"></span><div class="peek-gauge"><div class="peek-fill" id="peekFill"></div></div></button>
+    </div>
+    <div class="acts shoot-row" id="acts">
+      <button id="bDealer" class="shoot-btn shoot-dealer" data-i18n="对庄家开枪">对庄家开枪</button>
+      <button id="bSelf" class="shoot-btn shoot-self" data-i18n="对自己开枪">对自己开枪</button>
+    </div>
+  </div>
+    <div class="intro" id="intro" style="display:none">
+    <div class="intro-card">
+      <div class="intro-eyes" id="introEyes">
+        <div class="eye-wrap">
+          <div class="eye"><div class="pupil"></div></div>
+          <div class="eye"><div class="pupil"></div></div>
+        </div>
+        <div class="intro-line" data-i18n="黑暗里，有一双眼睛正在看你。">黑暗里，有一双眼睛正在看你。</div>
+        <button class="start" id="bEyesNext" data-i18n="睁 眼">睁 眼</button>
+        <button class="start" id="bCompendium" data-i18n="图 鉴">图 鉴</button>
+        <button id="bCheckpoint" class="start" style="display:none;background:linear-gradient(135deg,#151022,#241a3a);border-color:var(--gold);color:var(--gold)" data-i18n="🕯 存 档 点">🕯 存 档 点</button>
+        <button id="bChallenge" class="start" style="display:none;position:relative;background:linear-gradient(135deg,#0f1922,#1a2a3a);border-color:var(--cyan);color:var(--cyan)"><span data-i18n="♾ 轮 回 挑 战">♾ 轮 回 挑 战</span><span class="reddot" id="chDot" style="display:none"></span></button>
+      </div>
+      <div class="intro-body" id="introBody">
+        <div class="mask" id="introMask" style="animation:breathe 3s ease-in-out infinite">❓</div>
+        <h2 id="introTitle">窥 局 · 生 死 契</h2>
+        <p id="story"></p>
+        <div class="sign" id="introSign" data-i18n="— 戴生肖面具的庄家，将与你赌上血肉。">— 戴生肖面具的庄家，将与你赌上血肉。</div>
+        <div class="intro-choices" id="introChoices">
+          <button class="start" id="bWho" data-i18n="你 是 谁 ？">你 是 谁 ？</button>
+          <button class="start" id="bWhere" data-i18n="我 在 哪 里 ？">我 在 哪 里 ？</button>
+        </div>
+        <button class="start" id="bStart" style="display:none" data-i18n="看来我没有选择了，那就开始吧！">看来我没有选择了，那就开始吧！</button>
+      </div>
+    </div>
+  </div>
+  <!-- 设置弹窗 -->
+  <div class="settings" id="settings">
+    <div class="settings-backdrop" id="settingsBackdrop"></div>
+    <div class="settings-card">
+      <div class="settings-header">
+        <div class="settings-icon">⚙️</div>
+        <div class="settings-title" data-i18n="设 置">设 置</div>
+      </div>
+      <div class="settings-section">
+        <div class="settings-row lang-settings">
+          <div class="lang-settings-head"><span id="setLangLabel" class="settings-label" data-i18n="语言">语言</span><span class="lang-settings-sub">默认跟随系统，无需手动设置</span></div>
+          <div class="lang-grid">
+            <button id="setZh" class="settings-toggle lang-btn">简体中文</button>
+            <button id="setTw" class="settings-toggle lang-btn">繁體中文</button>
+            <button id="setEn" class="settings-toggle lang-btn">English</button>
+            <button id="setJa" class="settings-toggle lang-btn"><span>日本語</span></button>
+            <button id="setKo" class="settings-toggle lang-btn" disabled><span>한국어</span></button>
+            <button id="setRu" class="settings-toggle lang-btn" disabled><span>Русский</span></button>
+            <button id="setEs" class="settings-toggle lang-btn" disabled><span>Español</span></button>
+            <button id="setFr" class="settings-toggle lang-btn" disabled><span>Français</span></button>
+            <button id="setDe" class="settings-toggle lang-btn" disabled><span>Deutsch</span></button>
+          </div>
+        </div>
+        <div class="settings-row" style="display:none"><span data-i18n="背景音乐">背景音乐</span><button class="settings-toggle" id="setBgm">🎵 开</button></div>
+        <div class="settings-row"><span data-i18n="音效">音效</span><button class="settings-toggle" id="setSfx">🔊 开</button></div>
+      </div>
+      <div class="settings-divider"></div>
+      <div class="settings-section">
+        <div class="settings-row"><span data-i18n="本机战绩">本机战绩</span><button class="settings-toggle" id="setStats" data-i18n="📊 查看">📊 查看</button></div>
+        <div class="settings-row"><span data-i18n="成就">成就</span><button class="settings-toggle" id="setAch" data-i18n="🏅 查看">🏅 查看</button></div>
+        <div class="settings-row"><span data-i18n="图鉴">图鉴</span><button class="settings-toggle" id="setCompendium" data-i18n="📖 查看">📖 查看</button></div>
+        <div class="settings-row"><span data-i18n="排行榜">排行榜</span><button class="settings-toggle" id="setLb" data-i18n="🏆 查看">🏆 查看</button></div>
+        <div class="settings-row"><span data-i18n="云端存档">云端存档</span><button class="settings-toggle" id="setBind" data-i18n="关联">关联</button></div>
+        <div class="settings-row"><span data-i18n="恢复进度">恢复进度</span><button class="settings-toggle" id="setRecover" data-i18n="↩ 取回">↩ 取回</button></div>
+        <div class="settings-row" id="localSaveHint" style="display:none"><span data-i18n="进度自动保存于本浏览器">进度自动保存于本浏览器</span></div>
+        <div class="settings-row"><span data-i18n="常见问题">常见问题</span><button class="settings-toggle" id="setFaq" data-i18n="❓ 查看">❓ 查看</button></div>
+        <div class="settings-row"><span data-i18n="关于">关于</span><button class="settings-toggle" id="setAbout" data-i18n="ℹ️ 查看">ℹ️ 查看</button></div>
+        <div class="settings-row"><span data-i18n="Bug 反馈">Bug 反馈</span><button class="settings-toggle" id="setFeedback" data-i18n="🐞 反馈">🐞 反馈</button></div>
+      </div>
+      <div class="settings-actions">
+        <button class="settings-menu" id="setMenu" data-i18n="🏠 回主菜单">🏠 回主菜单</button>
+        <button class="settings-close" id="setClose" data-i18n="完成">完成</button>
+      </div>
+      <div class="settings-version" id="appVer"></div>
+    </div>
+  </div>
+  <!-- 云端存档 / 绑定邮箱 -->
+  <div class="itemhelp" id="bindModal">
+    <div class="itemhelp-backdrop" id="bindBackdrop"></div>
+    <div class="itemhelp-card">
+      <div class="itemhelp-title" data-i18n="云 端 存 档">云 端 存 档</div>
+      <div class="itemhelp-list">
+        <div class="lb-submit-row"><span data-i18n="昵称（用于排行榜，可选）">昵称（用于排行榜，可选）</span><input class="lb-name-input" id="bindName" maxlength="16" placeholder="" /></div>
+        <div id="bindUnbound">
+          <p class="bind-tip" data-i18n="绑定邮箱说明">绑定邮箱后，你的战绩、成就、存档点会存到云端。这是一个单机游戏，不是网游：每局结束后自动上传一次；同一邮箱在多台设备上玩，以最后一次上传为准，不会自动合并。换设备时请用设置里的「恢复进度」，不要用同一个邮箱重复绑定。</p>
+          <input type="email" id="bindEmail" class="lb-name-input" />
+          <button class="settings-toggle" id="bindSend" data-i18n="发送确认邮件">发送确认邮件</button>
+        </div>
+        <div id="bindBound" style="display:none">
+          <p class="bind-tip" id="bindBoundInfo"></p>
+          <button class="settings-toggle" id="bindUpload" data-i18n="⬆ 立即上传本机进度">⬆ 立即上传本机进度</button>
+          <button class="settings-toggle" id="bindDownload" data-i18n="⬇ 下载云端进度（覆盖本机）">⬇ 下载云端进度（覆盖本机）</button>
+          <p class="bind-tip" data-i18n="云存档规则说明">规则：每局结束自动上传一次；多设备以最后一次上传为准，不会合并；换设备请用「恢复进度」取回。</p>
+        </div>
+        <div id="bindStatus" class="bind-status"></div>
+      </div>
+      <button class="itemhelp-close" id="bindClose" data-i18n="关闭">关闭</button>
+    </div>
+  </div>
+  <!-- 恢复进度（新设备取回云端存档） -->
+  <div class="itemhelp" id="recoverModal">
+    <div class="itemhelp-backdrop" id="recoverBackdrop"></div>
+    <div class="itemhelp-card">
+      <div class="itemhelp-title" data-i18n="恢 复 进 度">恢 复 进 度</div>
+      <div class="itemhelp-list">
+        <p class="bind-tip" data-i18n="恢复进度说明">在新设备上输入你已经绑定过的邮箱，我们会发一封登录链接。点击链接回到游戏后，云端进度会覆盖这台设备上的本机进度（这台设备上没上传过的记录会丢失）。如果你从没绑定过邮箱，这里不会有任何数据。</p>
+        <input type="email" id="recoverEmail" class="lb-name-input" />
+        <button class="settings-toggle" id="recoverSend" data-i18n="发送登录链接">发送登录链接</button>
+        <div id="recoverStatus" class="bind-status"></div>
+      </div>
+      <button class="itemhelp-close" id="recoverClose" data-i18n="关闭">关闭</button>
+    </div>
+  </div>
+  <div class="itemhelp" id="statsModal">
+    <div class="itemhelp-backdrop" id="statsBackdrop"></div>
+    <div class="itemhelp-card">
+      <div class="itemhelp-title" data-i18n="📊 本机战绩">📊 本机战绩</div>
+      <div class="itemhelp-list" id="statsBody"></div>
+      <div class="stats-actions"><button class="itemhelp-close" id="statsReset" data-i18n="清空战绩">清空战绩</button><button class="itemhelp-close" id="statsClose" data-i18n="关闭">关闭</button></div>
+    </div>
+  </div>
+  <!-- 关于 -->
+  <div class="itemhelp" id="aboutModal">
+    <div class="itemhelp-backdrop" id="aboutBackdrop"></div>
+    <div class="itemhelp-card about-card">
+      <div class="itemhelp-title" data-i18n="关 于 窥 局">关 于 窥 局</div>
+      <div class="itemhelp-list" id="aboutBody"></div>
+      <button class="itemhelp-close" id="aboutClose" data-i18n="关闭">关闭</button>
+    </div>
+  </div>
+  <!-- 常见问题 / QA -->
+  <div class="itemhelp" id="faqModal">
+    <div class="itemhelp-backdrop" id="faqBackdrop"></div>
+    <div class="itemhelp-card faq-card">
+      <div class="itemhelp-title" data-i18n="常 见 问 题">常 见 问 题</div>
+      <div class="itemhelp-list" id="faqBody"></div>
+      <button class="itemhelp-close" id="faqClose" data-i18n="关闭">关闭</button>
+    </div>
+  </div>
+  <!-- 成就 -->
+  <div class="itemhelp" id="achModal">
+    <div class="itemhelp-backdrop" id="achBackdrop"></div>
+    <div class="itemhelp-card ach-card">
+      <button class="itemhelp-x" id="achX" aria-label="关闭">×</button>
+      <div class="itemhelp-title ach-title" data-i18n="轮 回 印 记">轮 回 印 记</div>
+      <div class="itemhelp-list" id="achBody"></div>
+      <button class="itemhelp-close" id="achClose" data-i18n="关闭">关闭</button>
+    </div>
+  </div>
+  <!-- 排行榜 -->
+  <div class="itemhelp" id="leaderboardModal">
+    <div class="itemhelp-backdrop" id="lbBackdrop"></div>
+    <div class="itemhelp-card lb-card">
+      <div class="itemhelp-title" data-i18n="全 球 排 行 榜">全 球 排 行 榜</div>
+      <div class="lb-status" id="lbStatus">…</div>
+      <div class="lb-mode-toggle" id="lbModeToggle">
+        <button class="lb-mode-btn active" data-mode="endless" data-i18n="无尽模式">无尽模式</button>
+        <button class="lb-mode-btn" data-mode="hell" data-i18n="地狱模式">地狱模式</button>
+      </div>
+      <div class="itemhelp-list" id="lbBody"></div>
+      <button class="itemhelp-close" id="lbClose" data-i18n="关闭">关闭</button>
+    </div>
+  </div>
+  <!-- 排行榜提交 -->
+  <div class="itemhelp" id="lbSubmitModal">
+    <div class="itemhelp-backdrop" id="lbSubmitBackdrop"></div>
+    <div class="itemhelp-card lb-card">
+      <div class="itemhelp-title" data-i18n="提 交 排 行 榜">提 交 排 行 榜</div>
+      <div class="itemhelp-list">
+        <div class="lb-submit-info" id="lbMyScore"></div>
+        <div class="lb-submit-row"><span data-i18n="昵称">昵称</span><input class="lb-name-input" id="lbNameInput" maxlength="16" placeholder=""></div>
+        <div class="lb-submit-btns">
+          <button class="lb-btn lb-btn-submit" id="lbSubmitBtn" data-i18n="提交">提交</button>
+          <button class="lb-btn lb-btn-cancel" id="lbSubmitCancel" data-i18n="取消">取消</button>
+        </div>
+        <div class="lb-submit-net" data-i18n="上传需要网络，提交后更新到全球榜">上传需要网络，提交后更新到全球榜</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 存档点弹窗 -->
+  <div class="itemhelp" id="checkpointModal">
+    <div class="itemhelp-card" style="text-align:center">
+      <div class="itemhelp-title"><span class="cp-title-emoji">🕯️</span><span data-i18n="存 档 点">存 档 点</span></div>
+      <div style="font-size:12px;color:var(--dim);line-height:1.8;margin:4px 0 12px" data-i18n="轮回记得你走过的路。从曾抵达的存档点重新开始，已获得的轮回馈赠与印记都会保留。">轮回记得你走过的路。从曾抵达的存档点重新开始，已获得的轮回馈赠与印记都会保留。</div>
+      <div class="cp-btns" id="cpBtns"></div>
+      <button class="itemhelp-close" id="cpClose" data-i18n="返回">返回</button>
+    </div>
+  </div>
+  <!-- 存档点续战说明卡：含小丑说明（伏笔） -->
+  <div class="checkpoint-intro-modal" id="checkpointIntroModal">
+    <div class="checkpoint-intro-card scene-card">
+      <div class="modal-scene">
+        <div class="modal-mask" id="cpIntroZodiac"></div>
+        <div class="modal-bubble" id="cpIntroClown"></div>
+      </div>
+      <h3 data-i18n="从 存 档 点 续 战">从 存 档 点 续 战</h3>
+      <div class="checkpoint-intro-line" id="cpIntroLine"></div>
+      <p class="checkpoint-intro-text" data-i18n="从存档点进入为简单模式，排行榜提交仅限无尽/地狱模式。">从存档点进入为简单模式，排行榜提交仅限无尽/地狱模式。</p>
+      <p class="checkpoint-intro-text" id="cpIntroHint">击败当前庄家后，无间轮回将继续推进。</p>
+      <div class="checkpoint-intro-actions">
+        <button class="checkpoint-intro-btn checkpoint-intro-btn-back" id="cpIntroBack" data-i18n="返 回">返 回</button>
+        <button class="checkpoint-intro-btn checkpoint-intro-btn-go" id="cpIntroGo" data-i18n="开始续战">开始续战</button>
+      </div>
+    </div>
+  </div>
+  <!-- 轮回挑战弹窗 -->
+  <div class="itemhelp" id="challengeModal">
+    <div class="itemhelp-card" style="text-align:center">
+      <div class="itemhelp-title" data-i18n="♾ 轮 回 挑 战">♾ 轮 回 挑 战</div>
+      <div style="font-size:12px;color:var(--dim);line-height:1.8;margin:4px 0 12px" data-i18n="每一种轮回，都是另一种死法。">每一种轮回，都是另一种死法。</div>
+      <div class="ch-btns" id="chBtns"></div>
+      <button class="itemhelp-close" id="chClose" data-i18n="返回">返回</button>
+    </div>
+  </div>
+  <!-- 存档点馈礼弹窗（小丑伏笔）：含小丑头像，与其他弹窗风格一致（标题在上方） -->
+  <div class="milestone-modal" id="jokerGiftModal">
+    <div class="milestone-card joker-gift-card scene-card">
+      <h3 class="joker-title" data-i18n="小 丑">小 丑</h3>
+      <div class="modal-reward joker-reward" id="jgReward"></div>
+      <div class="modal-scene">
+        <div class="modal-mask joker-mask"><span class="modal-face" id="jgAvatar">🎭</span></div>
+        <div class="modal-bubble joker-bubble plain" id="jgText"></div>
+      </div>
+      <button id="jgBtn" data-i18n="收 下">收 下</button>
+    </div>
+  </div>
+  <!-- 每日挑战弹窗：游戏场景式（标题+面具+气泡+按钮），风格与里程碑弹窗一致 -->
+  <div class="itemhelp" id="dailyModal">
+    <div class="itemhelp-backdrop" id="dailyBackdrop"></div>
+    <div class="daily-card scene-card">
+      <h3 data-i18n="每 日 挑 战">每 日 挑 战</h3>
+      <div class="modal-scene">
+        <div class="modal-mask" id="dailyMask"><span class="modal-face" id="dailyFace">🐰</span></div>
+        <div class="modal-bubble" id="dailyLine"></div>
+      </div>
+      <div id="dailyStats" style="display:none"></div>
+      <div class="daily-actions">
+        <button class="daily-btn daily-btn-secondary" id="dailyBackBtn" data-i18n="返 回">返 回</button>
+        <button class="daily-btn daily-btn-primary" id="dailyGo" data-i18n="开始挑战">开始挑战</button>
+      </div>
+    </div>
+  </div>
+  <div class="awaken-modal" id="awakenModal">
+    <div class="awaken-card scene-card">
+      <div class="modal-scene">
+        <div class="modal-mask cyan-mask"><span class="modal-face" id="awakenIco">👁</span></div>
+      </div>
+      <h3 data-i18n="觉 醒">觉 醒</h3>
+      <p data-i18n="你被子弹穿过身体的刹那，某种古老的回响在识海里苏醒——
+那是「无间轮回」留给不肯遗忘之人的恩赐：你开始能瞥见弹仓深处的秘密。
+按住「偷看」，在警觉槽涨满前松手，便可窥见下一发是实弹还是空包。
+（越看画面越抖，别贪。）次数有限，只在决定生死的关头使用。
+记住这份能力——在无间里，能「看见」的人，才多一线生机。">你被子弹穿过身体的刹那，某种古老的回响在识海里苏醒——
+那是「无间轮回」留给不肯遗忘之人的恩赐：你开始能瞥见弹仓深处的秘密。
+按住「偷看」，在警觉槽涨满前松手，便可窥见下一发是实弹还是空包。
+（越看画面越抖，别贪。）次数有限，只在决定生死的关头使用。
+记住这份能力——在无间里，能「看见」的人，才多一线生机。</p>
+      <button id="awakenBtn" data-i18n="睁 眼">睁 眼</button>
+    </div>
+  </div>
+  <div class="deathstar-modal" id="deathstarModal">
+    <div class="deathstar-card scene-card">
+      <div class="modal-scene">
+        <div class="modal-mask red-mask"><span class="modal-face">💀</span></div>
+      </div>
+      <h3 data-i18n="死 兆 星">死 兆 星</h3>
+      <p data-i18n="你感觉到了死兆星已经降临到你的头上，你在心惊胆战的情况下，居然额外获得了 2 次偷看的机会。">你感觉到了死兆星已经降临到你的头上，你在心惊胆战的情况下，居然额外获得了 2 次偷看的机会。</p>
+      <button id="deathstarBtn" data-i18n="确 认">确 认</button>
+    </div>
+  </div>
+  <!-- 轮回馈赠弹窗（里程碑奖励仪式） -->
+  <div class="milestone-modal" id="milestoneModal">
+    <div class="milestone-card scene-card">
+      <h3 data-i18n="轮 回 馈 赠">轮 回 馈 赠</h3>
+      <div class="modal-reward" id="msReward"></div>
+      <div class="modal-scene">
+        <div class="modal-mask" id="msMask"><span class="modal-face" id="msFace">🎁</span></div>
+        <div class="modal-bubble plain" id="msBubble">馈赠内容</div>
+      </div>
+      <button id="milestoneBtn" data-i18n="接 受 馈 赠">接 受 馈 赠</button>
+    </div>
+  </div>
+  <!-- 存档点已开启提示弹窗 -->
+  <div class="milestone-modal" id="cpUnlockedModal">
+    <div class="milestone-card scene-card">
+      <h3 data-i18n="🕯 存 档 点 · 已 开 启">🕯 存 档 点 · 已 开 启</h3>
+      <div class="modal-reward" id="cpUnlockedReward"></div>
+      <div class="modal-scene">
+        <div class="modal-mask cp-unlocked-mask"><span class="modal-face" id="cpUnlockedIco">🕯</span></div>
+        <div class="modal-bubble plain" id="cpUnlockedText"></div>
+      </div>
+      <button id="cpUnlockedBtn" data-i18n="继 续">继 续</button>
+    </div>
+  </div>
+  <!-- 模式解锁弹窗（困难/无尽/地狱）：胜利收尾时弹出，标题在上方 -->
+  <div class="unlock-modal" id="unlockModal">
+    <div class="unlock-card scene-card">
+      <h3 id="unlockTitle">困 难 轮 回 · 解 锁</h3>
+      <div class="modal-scene">
+        <div class="modal-mask" id="unlockMask"><span class="modal-face" id="unlockIco">⚔️</span></div>
+        <div class="modal-bubble" id="unlockText"></div>
+      </div>
+      <button class="result-btn" id="unlockBtn" data-i18n="查 收">查 收</button>
+    </div>
+  </div>
+  <div class="result" id="result">
+    <div class="crack" id="crack"></div>
+    <div class="result-card">
+      <div class="result-title" id="resultTitle">死</div>
+      <div class="result-zodiac" id="resultZodiac"></div>
+      <p class="result-story" id="resultStory"></p>
+      <div class="result-loot" id="resultLoot"></div>
+      <button class="result-btn" id="resultBtn"></button>
+      <button class="result-btn" id="shareBtn" data-i18n="分享">分享</button>
+    </div>
+  </div>
+  <!-- 假结局惊吓：击败辰龙后先让玩家以为能走向出口，再跳出小丑 -->
+  <div class="twist" id="twist">
+    <div class="twist-backdrop"></div>
+    <div class="twist-card">
+      <div class="twist-mask" id="twistMask">🎭</div>
+      <div class="twist-title" data-i18n="你以为……你赢了吗？">你以为……你赢了吗？</div>
+      <p class="twist-text" id="twistText">十二生肖，不过是我换脸的小把戏。<br>真正的庄家，才刚刚落座。</p>
+      <button class="result-btn" id="twistBtn" data-i18n="继 续">继 续</button>
+    </div>
+    <canvas id="glitchCanvas"></canvas>
+  </div>
+  <!-- 加码决策层：庄家先声明下一步动作，玩家只能 接受/拒绝（打开即冻结本回合） -->
+  <div class="bet-modal" id="betModal">
+    <div class="bet-backdrop"></div>
+    <div class="bet-card">
+      <div class="bet-avatar-row">
+        <div class="bet-avatar" id="betAvatar">🐒</div>
+      </div>
+      <div class="bet-card-title" data-i18n="加码 · 敢不敢赌一把？">加码 · 敢不敢赌一把？</div>
+      <div class="bet-decl" id="betDecl"></div>
+      <div class="bet-stakes" id="betStakes"></div>
+      <div class="bet-btns">
+        <button id="betAccept" class="primary" data-i18n="应 战">应 战</button>
+        <button id="betDecline" data-i18n="不 赌">不 赌</button>
+      </div>
+    </div>
+  </div>
+  <div class="roundbreak" id="roundbreak">
+    <div class="rb-card">
+      <div class="rb-head">
+        <div class="rb-avatar" id="rbAvatar">🐰</div>
+        <div class="rb-zodiac" id="rbZodiac"></div>
+      </div>
+      <p class="rb-text" id="rbText"></p>
+      <div class="rb-summary" id="rbSummary"></div>
+      <div class="rb-bet" id="rbBet" style="display:none"></div>
+      <div class="rb-btns">
+        <button class="rb-btn" id="rbBtn" data-i18n="继续">继续</button>
+      </div>
+    </div>
+  </div>
+  <!-- 统一暗色帮助弹窗（规则 / 道具 Tab） -->
+  <div class="modal" id="helpModal">
+    <div class="modal-backdrop" id="helpBackdrop"></div>
+    <div class="help-card">
+      <button class="help-close" id="helpClose">×</button>
+      <div class="help-tabs">
+        <button class="help-tab active" data-tab="rules" data-i18n="规则">规则</button>
+        <button class="help-tab" data-tab="items" data-i18n="道具">道具</button>
+        <button class="help-tab" data-tab="peek" data-i18n="偷看">偷看</button>
+      </div>
+      <div class="help-body" id="helpBody"></div>
+    </div>
+  </div>
+  <!-- 开场速览：怎么玩（复用 .modal/.help-card 样式） -->
+  <div class="modal" id="howtoModal">
+    <div class="modal-backdrop" id="howtoBackdrop"></div>
+    <div class="help-card">
+      <button class="help-close" id="howtoClose">×</button>
+      <div class="help-body" id="howtoBody"></div>
+    </div>
+  </div>
+  <!-- 静态偷看教学弹窗（1.2.1）：觉醒后暂停弹出 / 首页「怎么玩→偷看」可观看 -->
+  <div class="modal" id="peekTutorModal">
+    <div class="modal-backdrop" id="peekTutorBackdrop"></div>
+    <div class="peek-tutor-card">
+      <button class="peek-tutor-x" id="peekTutorX">×</button>
+      <div class="tutor-step" id="tutorStep1">
+        <div class="tutor-h2" data-i18n="觉醒 · 偷看已解锁">觉醒 · 偷看已解锁</div>
+        <div class="tutor-lead">
+          <div data-i18n="觉醒偷看后，可以使用偷看下一发子弹的能力">觉醒偷看后，可以使用偷看下一发子弹的能力</div>
+          <div data-i18n="按住「偷看」按钮不放，进入弹巢特写画面">按住「偷看」按钮不放，进入弹巢特写画面</div>
+          <div data-i18n="只按一下无效，松手就立即退出偷看画面">只按一下无效，松手就立即退出偷看画面</div>
+        </div>
+        <div class="tutor-hold-card">
+          <div class="tutor-peek-hint" data-i18n="长按这个按钮">长按这个按钮</div>
+          <div class="tutor-peek-btn"><span class="pe">👁</span><span class="peek-label" data-i18n="偷看">偷看</span><span class="cnt">×2</span></div>
+          <div class="tutor-peek-note" data-i18n="按住不放 = 进入偷看画面">按住不放 = 进入偷看画面</div>
+        </div>
+        <button class="itemhelp-close" id="tutorToStep2" data-i18n="下一步：看偷看画面 ▸">下一步：看偷看画面 ▸</button>
+        <div class="tutor-note" data-i18n="关闭教学后，可在游戏首页「怎么玩」再次观看">关闭教学后，可在游戏首页「怎么玩」再次观看</div>
+      </div>
+      <div class="tutor-step hidden" id="tutorStep2">
+        <div class="peek-frame">
+          <div class="monitor tutor-mon"><i id="tutorMon" style="width:25%"></i><span class="tutor-mon-line"></span></div>
+          <div class="peek-title" data-i18n="窥视 · 下一发">窥视 · 下一发</div>
+          <div class="cyl-wrap">
+            <canvas id="tutorCyl" width="600" height="600"></canvas>
+            <div class="modal-bubble red-bubble tutor-bubble" id="tutorWarn" style="left:109px;top:9px"><div class="tag" data-i18n="警戒线">警戒线</div><div data-i18n="红线超过警觉槽时，你的偷看将被庄家察觉，会被扣血并换手">红线超过警觉槽时，你的偷看将被庄家察觉，会被扣血并换手</div></div>
+            <div class="modal-bubble red-bubble tutor-bubble hidden" id="tutorBullet" style="left:55px;top:100px"><div class="tag" data-i18n="红色 = 实弹">红色 = 实弹</div><div data-i18n="金环内出现红色，表示下一发是实弹；灰色则为空包。">金环内出现红色，表示下一发是实弹；灰色则为空包。</div></div>
+          </div>
+          <div class="peek-foot" data-i18n="警觉槽涨满前松手 —— 越看画面越抖，别贪。">警觉槽涨满前松手 —— 越看画面越抖，别贪。</div>
+        </div>
+        <div class="tutor-nav" id="tutorNavPage1">
+          <button class="itemhelp-close" id="tutorToPage2" data-i18n="下一步：子弹说明 ▸">下一步：子弹说明 ▸</button>
+          <div class="tutor-note" data-i18n="第 1 / 2 页 · 关闭教学后，可在游戏首页「怎么玩」再次观看">第 1 / 2 页 · 关闭教学后，可在游戏首页「怎么玩」再次观看</div>
+        </div>
+        <div class="tutor-nav hidden" id="tutorNavPage2">
+          <button class="itemhelp-close" id="tutorPrevPage" data-i18n="◂ 上一步">◂ 上一步</button>
+          <button class="itemhelp-close" id="tutorClosePage2" data-i18n="关闭">关闭</button>
+          <div class="tutor-note" data-i18n="第 2 / 2 页 · 关闭教学后，可在游戏首页「怎么玩」再次观看">第 2 / 2 页 · 关闭教学后，可在游戏首页「怎么玩」再次观看</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="redFlash"></div>
+  <!-- 开枪演出层：第一人称枪支从屏幕底部升起（打庄家用 Revolver-back / 打玩家用 Revolver-front；实弹换火光图）；
+       z-index:25 压在 HUD/庄家之上、弹窗(35/45)之下；pointer-events:none 不挡按钮；走 ActorFire 不卡后台 -->
+  <div id="gunLayer" aria-hidden="true"><img id="gunImg" alt=""></div>
+</div>
+<div id="hintToast" class="hint-toast"></div>
+  <!-- 面具图鉴（成就图鉴 / 猎人标本室） -->
+  <div class="compendium" id="compendium" style="display:none">
+    <div class="cw-inner">
+      <div class="cw-head" id="cwHead">
+        <div class="cw-title">
+          <span class="cw-title-text" data-i18n="面具图鉴">面具图鉴</span>
+          <div class="cw-title-actions">
+            <button class="cw-help" id="cwTierHelp" aria-label="升级条件">?</button>
+            <button class="cw-close" id="cwClose" aria-label="关闭">✕</button>
+          </div>
+        </div>
+        <div class="cw-tools">
+          <button class="cw-btn" id="cwView" data-i18n="返回">返回</button>
+          <div class="cw-tools-right">
+            <button class="cw-btn" id="cwCols" data-i18n="列数：3">列数：3</button>
+            <button class="cw-btn" id="cwMode" data-i18n="显示：铭文">显示：铭文</button>
+            <button class="cw-btn" id="cwShare" data-i18n="分享">分享</button>
+          </div>
+        </div>
+      </div>
+      <div class="cw-body" id="cwBody">
+        <div class="cw-single" id="cwSingle">
+          <button class="cw-nav l" id="navL">‹</button>
+          <button class="cw-nav r" id="navR">›</button>
+          <div class="cw-viewport" id="cwViewport"><div class="cw-track" id="cwTrack"></div></div>
+        </div>
+        <div class="cw-grid" id="cwGrid">
+          <div class="cw-summary" id="cwSummary"></div>
+          <div class="cw-grid-cells" id="cwGridCells"></div>
+        </div>
+      </div>
+      <div class="cw-foot" id="cwFoot">
+        <span class="cw-count" id="cwCount">已收录 0/13</span>
+        <span class="cw-hint" id="cwHint"></span>
+      </div>
+    </div>
+  </div>
+  <div class="cw-modal" id="cwModal">
+    <div class="cw-modal-box">
+      <div class="cw-modal-title" data-i18n="升级条件">升级条件</div>
+      <div class="cw-tier-list" id="cwTierList"></div>
+      <div class="cw-modal-actions"><button class="cw-btn" id="cwModalClose" data-i18n="关闭">关闭</button></div>
+    </div>
+  </div>
+  <script defer src="./i18n.js"></script>
+  <script defer src="./platformProfile.js"></script>
+  <script defer src="./cloudSave.js"></script>
+  <script defer src="./audio.js"></script>
+  <script defer src="./game.js"></script>
+  <script defer src="./gmPanel.js"></script>
+  <script defer src="./swReg.js"></script>
+  <script defer src="./share/qrcode.lib.js"></script>
+  <script defer src="./share/share.js"></script>
+</body>
+</html>
